@@ -1,0 +1,23 @@
+<h1>Membership for <%= @club.name %></h1>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @members.each do |member| %>
+      <tr>
+        <td><%= member.id %></td>
+        <td><%= member.name %></td>
+        <td>
+          <%= link_to 'Rides', rides_path(:athlete_id => member.id)%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br />
+<%= link_to 'Home', clubs_url %>

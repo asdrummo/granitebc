@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  strava_id: 1
+  picture: MyText
+  weekly_mileage: 1.5
+  alltime_mileage: 
+  weekly_elevation: 
+  alltime_elevation: 1.5
+  weekly_time: 1
+  total_time: 1
+  weekly_max_speed: 1.5
+  alltime_max_speed: 1.5
+
+two:
+  name: MyString
+  strava_id: 1
+  picture: MyText
+  weekly_mileage: 1.5
+  alltime_mileage: 
+  weekly_elevation: 
+  alltime_elevation: 1.5
+  weekly_time: 1
+  total_time: 1
+  weekly_max_speed: 1.5
+  alltime_max_speed: 1.5

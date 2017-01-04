@@ -1,0 +1,30 @@
+oldest activity: <%= Time.at(Activity.order("start_date").first.start_date).utc.strftime("%H:%M:%S  %m/%d/%Y") %>, week # = <%= Time.at(Activity.order("start_date").first.start_date).utc.strftime("%W")%><br />
+newest activity: <%= Time.at(Activity.order("start_date").last.start_date).utc.strftime("%H:%M:%S  %m/%d/%Y") %><br />
+<a href="http://localhost:3000/clubs/activity_dump">Activity Dump</a>, today's week # = <%= Time.now.strftime("%W").to_i %>
+<h1><%= @club["name"] %></h1> <%= @members %>
+
+<table>
+  <thead>
+    <tr>
+	  <th>pic</th>
+      <th>Name</th>
+	  <th>Time</th>
+	  <th>Vert</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @athletes.order('weekly_elevation DESC').each do |athlete| %>
+
+      <tr>
+		 <td><img src="<%= athlete.picture %>" style="width:62px;height:62px;"></td>
+        <td><a href="https://www.strava.com/athletes/<%= athlete.strava_id %>" target="_blank"><%= athlete.name%></a></td>		
+		<td><%= Time.at(athlete.weekly_time).utc.strftime("%H:%M:%S") %></td>
+		<td>
+			<% @vert_in_feet = (athlete.weekly_elevation*3.28084).floor %>
+			<%= number_with_delimiter(@vert_in_feet, :delimiter => ',') %>
+		</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
